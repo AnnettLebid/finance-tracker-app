@@ -29,6 +29,10 @@ interface CreditCardsFormProps {
 }
 
 const formSchema = z.object({
+  cardHolderName: z
+    .string()
+    .min(2, { message: "Card holder name should have min 2 characters" })
+    .max(20, { message: "Card holder name should have min 20 characters" }),
   cardNumber: z
     .string()
     .min(16, { message: "Card number should have 16 characters" })
@@ -37,6 +41,7 @@ const formSchema = z.object({
     .string()
     .min(2, { message: "Company name should be at least 2 characters" })
     .max(20, { message: "Too long company name" }),
+  expirationDate: z.number(),
 });
 
 const CreditCardsForm = ({ open, onOpenChange }: CreditCardsFormProps) => {
@@ -72,6 +77,23 @@ const CreditCardsForm = ({ open, onOpenChange }: CreditCardsFormProps) => {
               >
                 <FormField
                   control={form.control}
+                  name="cardHolderName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Cardholder Name</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="John Doe"
+                          type="number"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
                   name="cardNumber"
                   render={({ field }) => (
                     <FormItem>
@@ -94,12 +116,26 @@ const CreditCardsForm = ({ open, onOpenChange }: CreditCardsFormProps) => {
                     <FormItem>
                       <FormLabel>Company Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Company name...." {...field} />
+                        <Input placeholder="Cal" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
+                <FormField
+                  control={form.control}
+                  name="expirationDate"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Expiration date</FormLabel>
+                      <FormControl>
+                        <Input placeholder="09/28" type="number" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 <Button type="submit" disabled={!form.formState.isValid}>
                   Add
                 </Button>
