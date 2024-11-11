@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { Poppins } from "next/font/google";
 import { cn } from "../lib/utils";
 import "./globals.css";
+import ThemeProvider from "./providers/ThemeProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -35,12 +36,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(
-          `${poppins.variable} ${geistMono.variable} antialiased`,
-          "dark"
-        )}
+        className={cn(`${poppins.variable} ${geistMono.variable} antialiased`)}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
