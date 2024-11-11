@@ -1,7 +1,11 @@
 import React from "react";
 import NavBarContainer from "./NavBarContainer";
 import { cn } from "@/lib/utils";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/app/components/ui/avatar";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 const NavBar = () => {
