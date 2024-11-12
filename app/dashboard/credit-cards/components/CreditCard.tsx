@@ -8,6 +8,7 @@ export interface CreditCard {
   cardHolderName: string;
   expirationDate: string;
   cardCompany: string;
+  balance: number;
 }
 
 const CreditCard = ({ card }: { card: CreditCard }) => {

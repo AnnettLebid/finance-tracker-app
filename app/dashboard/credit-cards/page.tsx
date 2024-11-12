@@ -1,9 +1,35 @@
 "use client";
 import React, { useState } from "react";
-import LoginForm from "../../../components/LoginForm";
-import Header from "../../../components/Header";
-import { Button } from "@/components/ui/button";
+import LoginForm from "../../components/LoginForm";
+import Header from "../../components/Header";
+import { Button } from "@/app/components/ui/button";
 import CreditCardsForm from "../components/CreditCardsForm";
+import CardsList from "./components/CardsList";
+import ChartSection from "./sections/ChartSection";
+
+const myCards = [
+  {
+    cardHolderName: "John Doe",
+    cardNumber: "1234 5678 9010 9993",
+    expirationDate: "12/23",
+    cardCompany: "Cal",
+    balance: -10000,
+  },
+  {
+    cardHolderName: "John Doe",
+    cardNumber: "1234 5678 9010 9992",
+    expirationDate: "12/23",
+    cardCompany: "Max",
+    balance: -1250,
+  },
+  {
+    cardHolderName: "John Doe",
+    cardNumber: "1234 5678 9010 9991",
+    expirationDate: "12/23",
+    cardCompany: "Isracard",
+    balance: -12563,
+  },
+];
 
 const CreditCardsPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +44,10 @@ const CreditCardsPage = () => {
           onOpenChange={() => setIsOpen(!isOpen)}
         />
       </div>
+      <section className="mt-10">
+        <CardsList cardsData={myCards} />
+      </section>
+      <ChartSection cardsData={myCards} />
     </div>
   );
 };
