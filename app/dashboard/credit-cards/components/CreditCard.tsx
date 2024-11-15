@@ -1,9 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import { Card } from "../../../components/ui/card";
-import { Button } from "../../../components/ui/button";
+import { Card } from "../../../../components/ui/card";
+import { Button } from "../../../../components/ui/button";
+import { cn } from "@/lib/utils";
 
-export interface CreditCard {
+export interface CreditCardInterface {
+  id: number;
   cardNumber: string;
   cardHolderName: string;
   expirationDate: string;
@@ -11,10 +13,24 @@ export interface CreditCard {
   balance: number;
 }
 
-const CreditCard = ({ card }: { card: CreditCard }) => {
+const CreditCard = ({
+  card,
+  isSelected,
+  handleClick,
+}: {
+  card: CreditCardInterface;
+  isSelected: boolean;
+  handleClick: (card: CreditCardInterface) => void;
+}) => {
   const { cardNumber, cardHolderName, expirationDate, cardCompany } = card;
   return (
-    <Button className="p-0 min-h-40 min-w-80 text-start">
+    <Button
+      className={cn("p-0 min-h-40 min-w-80 text-start", {
+        "ring-4": isSelected,
+      })}
+      variant="ghost"
+      onClick={() => handleClick(card)}
+    >
       <Card
         className={
           "border h-40 w-80 bg-gradient-to-r from-teal-400 to-blue-500 hover:ring-2 p-4 flex flex-col justify-between"
@@ -32,6 +48,7 @@ const CreditCard = ({ card }: { card: CreditCard }) => {
             <p className="font-bold text-xs text-muted-foreground">
               CARD HOLDER
             </p>
+            {isSelected ? "selected" : "not selected"}
             <p className="font-bold text-md">{cardHolderName}</p>
           </div>
           <div>

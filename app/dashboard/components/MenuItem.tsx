@@ -1,6 +1,5 @@
 "use client";
 import { ReactNode } from "react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
@@ -18,9 +17,10 @@ const MenuItem = ({
   return (
     <Link
       className={cn(
-        "bg-transparent p-2 rounded-sm dark:hover:bg-zinc-700 hover:bg-zinc-600 w-full hover:text-foreground text-muted-foreground",
+        "bg-transparent p-2 rounded-sm dark:hover:bg-zinc-700  w-full hover:text-foreground text-muted-foreground",
         {
-          "bg-zinc-600 text-lime-500": isActive,
+          "dark:bg-zinc-600 bg-zinc-300 dark:text-lime-500 text-lime-800":
+            isActive,
         }
       )}
       href={href}
