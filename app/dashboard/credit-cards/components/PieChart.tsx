@@ -1,6 +1,12 @@
 import { useState, useCallback } from "react";
 
-import { PieChart as CardsPieChart, Pie, Sector, Cell } from "recharts";
+import {
+  PieChart as CardsPieChart,
+  Pie,
+  Sector,
+  Cell,
+  ResponsiveContainer,
+} from "recharts";
 interface ChartData {
   cardNumber: string;
   value: number;
@@ -95,24 +101,26 @@ const PieChart = ({ chartData }: { chartData: ChartData[] }) => {
   };
 
   return (
-    <CardsPieChart width={500} height={400}>
-      <Pie
-        activeIndex={activeIndex}
-        activeShape={renderActiveShape}
-        data={chartData}
-        cx="50%"
-        cy="50%"
-        innerRadius={60}
-        outerRadius={80}
-        fill="#8884d8"
-        dataKey="value"
-        onMouseEnter={onPieEnter}
-      >
-        {chartData.map((entry, index: number) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-        ))}
-      </Pie>
-    </CardsPieChart>
+    <ResponsiveContainer width="100%" height={300}>
+      <CardsPieChart>
+        <Pie
+          activeIndex={activeIndex}
+          activeShape={renderActiveShape}
+          data={chartData}
+          cx="50%"
+          cy="50%"
+          innerRadius={60}
+          outerRadius={80}
+          fill="#8884d8"
+          dataKey="value"
+          onMouseEnter={onPieEnter}
+        >
+          {chartData.map((entry, index: number) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+      </CardsPieChart>
+    </ResponsiveContainer>
   );
 };
 

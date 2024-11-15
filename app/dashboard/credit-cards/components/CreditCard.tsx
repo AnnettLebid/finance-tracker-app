@@ -33,7 +33,7 @@ const CreditCard = ({
     >
       <Card
         className={
-          "border h-40 w-80 bg-gradient-to-r from-teal-400 to-blue-500 hover:ring-2 p-4 flex flex-col justify-between"
+          "border h-40 w-80 bg-gradient-to-r from-teal-400 to-blue-500 hover:ring-1 p-4 flex flex-col justify-between"
         }
       >
         <div className="flex justify-between">

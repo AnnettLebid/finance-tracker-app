@@ -1,12 +1,24 @@
 import React from "react";
-import Card, { CreditCard } from "./CreditCard";
+import CreditCard, { CreditCardInterface } from "./CreditCard";
 
-const CardsList = ({ cardsData }: { cardsData: CreditCard[] }) => {
+const CardsList = ({
+  cardsData,
+  handleClick,
+  selectedCard,
+}: {
+  cardsData: CreditCardInterface[];
+  selectedCard: CreditCardInterface;
+  handleClick: (card: CreditCardInterface) => void;
+}) => {
   return (
-    <ul className="flex gap-4">
+    <ul className="flex flex-col md:flex-row md:flex-wrap gap-4">
       {cardsData.map((card) => (
         <li key={card.cardNumber}>
-          <Card card={card}></Card>
+          <CreditCard
+            card={card}
+            handleClick={handleClick}
+            isSelected={selectedCard.id === card.id}
+          />
         </li>
       ))}
     </ul>
