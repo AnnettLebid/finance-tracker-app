@@ -9,7 +9,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger,
-} from "../../components/ui/sidebar";
+} from "@/components/ui/sidebar";
 import {
   WalletCards,
   Home,

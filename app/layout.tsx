@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Poppins } from "next/font/google";
-import { cn } from "../lib/utils";
+import { cn } from "@/lib/utils";
 import "./globals.css";
 import ThemeProvider from "./providers/ThemeProvider";
 
