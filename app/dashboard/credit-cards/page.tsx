@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import LoginForm from "../../components/LoginForm";
 import Header from "../../components/SectionHeader";
-import { Button } from "../../../components/ui/button";
+import { Button } from "../../components/ui/button";
 import CreditCardsForm from "../components/CreditCardsForm";
 import CardsList from "./components/CardsList";
 import ChartSection from "./sections/ChartSection";

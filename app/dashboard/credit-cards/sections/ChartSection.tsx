@@ -2,7 +2,7 @@ import cn from "clsx";
 import { ClassValue } from "clsx";
 import PieChart from "../components/PieChart";
 import Header from "@/app/components/SectionHeader";
-import { Card, CardTitle } from "../../../../components/ui/card";
+import { Card, CardTitle } from "../../../components/ui/card";
 import { CreditCardInterface } from "../components/CreditCard";
 
 const ChartSection = ({
