@@ -48,7 +48,6 @@ const CreditCard = ({
             <p className="font-bold text-xs text-muted-foreground">
               CARD HOLDER
             </p>
-            {isSelected ? "selected" : "not selected"}
             <p className="font-bold text-md">{cardHolderName}</p>
           </div>
           <div>

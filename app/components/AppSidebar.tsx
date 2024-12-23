@@ -16,6 +16,7 @@ import {
   ArrowLeftRight,
   Activity,
   Settings,
+  ShoppingBag,
 } from "lucide-react";
 
 const items = [
@@ -34,6 +35,11 @@ const items = [
     title: "Transactions",
     url: "/dashboard/transactions",
     icon: ArrowLeftRight,
+  },
+  {
+    title: "Categories",
+    url: "/dashboard/categories",
+    icon: ShoppingBag,
   },
   {
     title: "Stocks",

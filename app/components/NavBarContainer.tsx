@@ -20,7 +20,7 @@ const NavBarContainer = ({
   return (
     <nav
       className={cn(
-        "min-h-12 p-2 border dark:border-neutral-900",
+        "min-h-12 p-2 border dark:border-neutral-900 fixed top-0 w-full",
         classNames?.container
       )}
     >

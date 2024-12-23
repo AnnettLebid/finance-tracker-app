@@ -59,6 +59,12 @@ const config: Config = {
       fontFamily: {
         poppins: ["var(--font-poppins)"],
       },
+      minHeight: {
+        "screen-nav": "calc(100dvh - 3.5rem)",
+      },
+      height: {
+        "screen-nav": "calc(100dvh - 3.5rem)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -16,7 +16,7 @@ interface ChartData {
 const PieChart = ({ chartData }: { chartData: ChartData[] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
-    (_, index: number) => {
+    (_: unknown, index: number) => {
       setActiveIndex(index);
     },
     [setActiveIndex]

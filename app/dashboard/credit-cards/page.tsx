@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import LoginForm from "../../components/LoginForm";
-import Header from "../../components/Header";
+import Header from "../../components/SectionHeader";
 import { Button } from "../../../components/ui/button";
 import CreditCardsForm from "../components/CreditCardsForm";
 import CardsList from "./components/CardsList";
@@ -43,9 +43,12 @@ const CreditCardsPage = () => {
   const handleCard = (card: CreditCardInterface) => setSelectedCard(card);
 
   return (
-    <div className="p-8 mx-auto w-full">
+    <div className="p-8 mx-auto w-full mt-14">
       <div className="flex justify-between">
-        <Header title={"Credit Cards"} className={"text-3xl font-extrabold"} />
+        <Header
+          title={"Credit Cards"}
+          classNames={{ header: "text-3xl font-extrabold" }}
+        />
         <Button onClick={() => setIsOpen(!isOpen)}>Add</Button>
         <CreditCardsForm
           open={isOpen}
