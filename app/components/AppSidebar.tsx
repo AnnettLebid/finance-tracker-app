@@ -1,3 +1,4 @@
+import { usePathname } from "next/navigation";
 import {
   Sidebar,
   SidebarContent,
@@ -18,13 +19,13 @@ import {
   Settings,
   ShoppingBag,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const items = [
   {
     title: "Home",
-    url: "#",
+    url: "/dashboard",
     icon: Home,
-    isActive: true,
   },
   {
     title: "Credit Cards",
@@ -48,29 +49,44 @@ const items = [
   },
   {
     title: "Settings",
-    url: "#",
+    url: "/dashboard/settings",
     icon: Settings,
   },
 ];
 
 export function AppSidebar() {
+  const pathname = usePathname();
+
   return (
     <Sidebar>
-      <SidebarHeader className="font bold text-2xl text-sky-400 px-4">Finance Tracker</SidebarHeader>
+      <SidebarHeader className="font-bold text-2xl text-sky-400 px-4">Finance Tracker</SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu className="mt-4">
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild className="text-md">
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {items.map((item) => {
+                const isActive = pathname === item.url;
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton
+                      asChild
+                      isActive={isActive}
+                      className={cn(
+                        "transition-colors duration-200",
+                        isActive && "bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 font-medium rounded-sm"
+                      )}
+                    >
+                      <a href={item.url}>
+                        <item.icon className={cn(
+                          "transition-colors duration-200",
+                          isActive && "text-sky-600 dark:text-sky-400"
+                        )} />
+                        <span>{item.title}</span>
+                      </a>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
