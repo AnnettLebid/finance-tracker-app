@@ -15,8 +15,8 @@ interface HeaderProps {
 
 const SectionHeader = ({ title, classNames, children }: HeaderProps) => {
   return (
-    <div className={cn("flex justify-between", classNames?.root)}>
-      <div className={cn("font-bold, text-xl", classNames?.header)}>
+    <div className={cn(classNames?.root)}>
+      <div className={cn("font-bold text-xl", classNames?.header)}>
         {title}
       </div>
       <div>{children}</div>

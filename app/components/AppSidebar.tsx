@@ -56,12 +56,9 @@ const items = [
 export function AppSidebar() {
   return (
     <Sidebar>
-      <SidebarHeader></SidebarHeader>
+      <SidebarHeader className="font bold text-2xl text-sky-400 px-4">Finance Tracker</SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="font bold text-2xl text-sky-400">
-            Finance Tracker
-          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="mt-4">
               {items.map((item) => (
